@@ -13,3 +13,8 @@ for szo in szavak:
         monogram += szo[0].upper()
 
 print("Monogram:", monogram)
+<<<<<<< HEAD
+=======
+
+#Varga Gyula, Pádár Zsombor, Szilágyi Ákos
+>>>>>>> 6e3b7abd6e616883b03d7d9ddf67fbda179c64d6
