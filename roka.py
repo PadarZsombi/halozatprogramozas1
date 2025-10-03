@@ -22,11 +22,12 @@ for liba in libak:
         roka_darab += 1
 print(f"Átlagosan {roka_kilo/roka_darab} kilósak a rókánál maradt libák")
     
-# 3. Előfordult-e, hogy a róka legalább 3kg-os libát lopott?
+# 3. Előfordult-e, hogy a róka legalább 3kg-os libát lopott? Eldöntés tétel
 volt_legalabb_harom = False
 for liba in libak:
     if liba >= 3:
         volt_legalabb_harom = True
+        break
 
 if volt_legalabb_harom:
     print("Előfordult, hogy a róka legalább 3kg-os libát lopott.")
@@ -34,7 +35,45 @@ else:
     print("Nem fordult elő.")
         
 # 4. Előfordult-e, hogy a róka kisebb libát lopott, mint az előző napon?
-# 5. Hányadik napon sikerült először 3kg-nál nehezebb libát lopni?
+volt_kisebb = False
+for index in range (len(libak)-1):
+    if libak[index]>libak[index+1]:
+        volt_kisebb = True
+        break
+if volt_kisebb:
+    print("Előfordult, hogy a róka kisebb libát lopott, mint az előző napon")
+else:
+    print("Nem fordult elő, hogy a róka kisebb libát lopott, mint az előző napon")
+
+# 5. Hányadik napon sikerült először 3kg-nál nehezebb libát lopni? #kivalasztas
+index = 0
+while not(libak[index]>= 3):
+    index += 1
+print(f"{index+1}. napon sikerült először 3kg-nál nehezebb libát lopni")
+
+
 # 6. Volt-e 6kg súlyú liba, ha volt akkor melyik napon?
-# 7. Hány liba jutott a héten a farkasnak?
-# 8. Hány kilós volt a rókánál maradó legnagyobb libának?
+van_6kg = False
+i = 0
+while i < len(libak) and not (libak[i] == 6):
+    i += 1
+
+if i < len(libak):
+    print(f"Volt 6k súlyú liba, a {+1}. napon")
+else:
+    print(f"Nem volt 6k súlyú liba.")
+# 7. Hány liba jutott a héten a farkasnak? #megszámlálás
+farkas_db = 0
+for liba in libak:
+    if liba > 3:
+        farkas_db += 1
+print(f"{farkas_db} liba jutott a héten a farkasnak")
+
+# 8. Hány kilós volt a rókánál maradó legnagyobb libának? #maximum kiválasztás
+max_index = 0
+for index in range(len(libak)):
+    if libak[index] > libak[max_index] and libak[index] < 4:
+        max_index = index
+print(f" {libak[max_index]} kilós volt a rókánál maradó legnagyobb libának a súlya")
+        
+
