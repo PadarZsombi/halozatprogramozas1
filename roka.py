@@ -76,4 +76,7 @@ for index in range(len(libak)):
         max_index = index
 print(f" {libak[max_index]} kilós volt a rókánál maradó legnagyobb libának a súlya")
         
-
+#9. Írasd ki a liba_jo.txt fájlba a libák súlyait 10%-al megemelve.
+with open("libak_jo.txt", "w", encoding="utf8") as fout:
+    for liba in libak:
+        print(liba*1.1, file=fout)
